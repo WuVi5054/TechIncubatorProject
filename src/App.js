@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Button, TextField, Heading, Text } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 // import './App.css';
@@ -25,18 +25,18 @@ function App() {
   const usersCollectionRef = collection(db, "users");
 
   const createTask = async () => {
-    await addDoc(usersCollectionRef, {task: newTask, timelimit:newTimeLimit, summary:newSummary, compensation:newCompensation})
+    await addDoc(usersCollectionRef, { task: newTask, timelimit: newTimeLimit, summary: newSummary, compensation: newCompensation })
     window.location.reload(false);
   };
 
   const updateTask = async (id) => {
     const userDoc = doc(db, "users", id);
-    const newFields = {student: newStudent, email: newEmail, link: newLink}
+    const newFields = { student: newStudent, email: newEmail, link: newLink }
     await updateDoc(userDoc, newFields);
     window.location.reload(false);
   };
 
-  const deleteTask = async (id) =>{
+  const deleteTask = async (id) => {
     const userDoc = doc(db, "users", id);
     await deleteDoc(userDoc);
     window.location.reload(false);
@@ -53,10 +53,10 @@ function App() {
   return (
     <div className="App">
       <Heading>Task Creation</Heading>
-      <TextField size="small" placeholder="Task Name" onChange={(event) => {setNewTask(event.target.value)}}/>
-      <TextField size="small" placeholder="Time Limit" onChange={(event) => {setNewTimeLimit(event.target.value)}}/>
-      <TextField size="small" placeholder="Task Summary" onChange={(event) => {setNewSummary(event.target.value)}}/>
-      <TextField size="small" placeholder="Compensation" onChange={(event) => {setNewCompensation(event.target.value)}}/>
+      <TextField size="small" placeholder="Task Name" onChange={(event) => { setNewTask(event.target.value) }} />
+      <TextField size="small" placeholder="Time Limit" onChange={(event) => { setNewTimeLimit(event.target.value) }} />
+      <TextField size="small" placeholder="Task Summary" onChange={(event) => { setNewSummary(event.target.value) }} />
+      <TextField size="small" placeholder="Compensation" onChange={(event) => { setNewCompensation(event.target.value) }} />
       <br></br>
       <Button onClick={createTask}>Create Task</Button>
       <br></br>
@@ -71,14 +71,14 @@ function App() {
             <Text>Student Email: {user.email}</Text>
             <Text>Submission Link: {user.link}</Text>
             <Text>Time Limit: {user.timelimit}</Text>
-            <Text>Task Summary: {user.summary} </Text> 
+            <Text>Task Summary: {user.summary} </Text>
             <Text>Compensation: {user.compensation}</Text>
-            <TextField placeholder="Student Name" onChange={(event) => {setNewStudent(event.target.value)}}/>
-            <TextField placeholder="Student Email" onChange={(event) => {setNewEmail(event.target.value)}}/>
-            <TextField placeholder="Submission Link" onChange={(event) => {setNewLink(event.target.value)}}/>
+            <TextField placeholder="Student Name" onChange={(event) => { setNewStudent(event.target.value) }} />
+            <TextField placeholder="Student Email" onChange={(event) => { setNewEmail(event.target.value) }} />
+            <TextField placeholder="Submission Link" onChange={(event) => { setNewLink(event.target.value) }} />
             <br></br>
-            <Button onClick={() => {updateTask(user.id)}}>Accept Task</Button>
-            <Button onClick={() => {deleteTask(user.id)}}>Delete Task</Button>
+            <Button onClick={() => { updateTask(user.id) }}>Accept Task</Button>
+            <Button onClick={() => { deleteTask(user.id) }}>Delete Task</Button>
             <br></br>
             <br></br>
           </div>
