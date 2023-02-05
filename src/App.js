@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button, TextField, Heading, Text } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
-// import './App.css';
+import './App.css';
 import { db } from "./firebase-config";
 import {
   collection,
@@ -53,10 +53,10 @@ function App() {
   return (
     <div className="App">
       <Heading>Task Creation</Heading>
-      <TextField size="small" placeholder="Task Name" onChange={(event) => { setNewTask(event.target.value) }} />
-      <TextField size="small" placeholder="Time Limit" onChange={(event) => { setNewTimeLimit(event.target.value) }} />
-      <TextField size="small" placeholder="Task Summary" onChange={(event) => { setNewSummary(event.target.value) }} />
-      <TextField size="small" placeholder="Compensation" onChange={(event) => { setNewCompensation(event.target.value) }} />
+      <TextField size="large" placeholder="Task Name" onChange={(event) => { setNewTask(event.target.value) }} />
+      <TextField size="large" placeholder="Time Limit" onChange={(event) => { setNewTimeLimit(event.target.value) }} />
+      <TextField size="large" placeholder="Task Summary" onChange={(event) => { setNewSummary(event.target.value) }} />
+      <TextField size="large" placeholder="Compensation" onChange={(event) => { setNewCompensation(event.target.value) }} />
       <br></br>
       <Button onClick={createTask}>Create Task</Button>
       <br></br>
