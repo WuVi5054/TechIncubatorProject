@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react";
-import { Button, TextField, Heading, ThemeProvider, Text } from '@aws-amplify/ui-react';
+import { Button, TextField, Heading, Text } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 // import './App.css';
 import { db } from "./firebase-config";
